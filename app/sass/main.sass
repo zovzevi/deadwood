@@ -1,0 +1,109 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+
+*
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  &:before, &:after
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+*::-webkit-input-placeholder
+  color: #666
+  opacity: 1
+
+*:-moz-placeholder
+  color: #666
+  opacity: 1
+
+*::-moz-placeholder
+  color: #666
+  opacity: 1
+
+*:-ms-input-placeholder
+  color: #666
+  opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+  color: #666
+body input:required:valid,
+body textarea:required:valid
+  color: #666
+
+html, body
+  height: 100%
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.65
+  font-family: $default-font
+  overflow-x: hidden
+  opacity: 1
+  background-color: black
+
+#screen
+  border: 1px solid black
+  position: absolute
+  margin: auto
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background-color: $grass
+
+.startButton
+  text-align: center
+
+.button
+  display: inline-block
+  border: none
+  color: #fff
+  text-decoration: none
+  background-color: $accent
+  padding: 15px 45px
+  font-size: 13px
+  text-transform: uppercase
+  font-weight: 600
+  letter-spacing: 3px
+  border-radius: 2px
+  text-align: center
+  position: relative
+  outline: none
+  transition: background-color .1s ease
+  cursor: pointer
+  &::after
+    transition: background-color .2s ease
+    position: absolute
+    content: ''
+    height: 4px
+    bottom: 0
+    width: 100%
+    background-color: darken($accent, 50%)
+    opacity: .18
+    border-bottom-left-radius: 2px
+    border-bottom-right-radius: 2px
+    left: 0
+  &:focus, &:hover
+    text-decoration: none
+    color: #fff
+  &:hover
+    background-color: lighten($accent, 5%)
+    &::after
+      opacity: .22
+  &:active
+    background-color: darken($accent, 5%)
+    &::after
+      opacity: .32
+
+.img-responsive
+  display: block
+  max-width: 100%
+  height: auto
+
+@import "media"

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <title>Deadwood</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+  <meta name="theme-color" content="#000">
+  <style>body { opacity: 0; overflow-x: hidden; } html { background-color: #0a0a0a; }</style>
+</head>
+
+<body>
+
+  <div class="game-wrapper">
+    <div class="game-title">DEADWOOD</div>
+    <div class="canvas-container">
+      <canvas id="screen" height="800" width="1280"></canvas>
+      <button class="btn-fullscreen" onclick="toggleFullscreen()" title="Fullscreen">⛶</button>
+    </div>
+    <div class="game-footer">
+      <button class="button" onclick="start()">▶ &nbsp;START</button>
+      <div class="controls-hint">
+        <span>A / D — move</span>
+        <span>SHIFT — jump</span>
+        <span>S — collect</span>
+        <span>ESC — pause</span>
+      </div>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="libs/LinkedList_v1.3.js"></script>
+  <script src="js/deadwood.class.js"></script>
+  <script src="js/common.js"></script>
+  <script>
+    function toggleFullscreen() {
+      let el = document.querySelector('.canvas-container');
+      if (!document.fullscreenElement) {
+        el.requestFullscreen && el.requestFullscreen();
+      } else {
+        document.exitFullscreen && document.exitFullscreen();
+      }
+    }
+    // ESC из fullscreen не ломает паузу
+    document.addEventListener('fullscreenchange', function() {
+      let btn = document.querySelector('.btn-fullscreen');
+      if (btn) btn.textContent = document.fullscreenElement ? '✕' : '⛶';
+    });
+  </script>
+
+</body>
+</html>

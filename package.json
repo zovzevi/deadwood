@@ -1,0 +1,11 @@
+{
+  "name": "deadwood",
+  "version": "1.0.0",
+  "description": "Deadwood — браузерная игра про сбор валежника",
+  "scripts": {
+    "start": "browser-sync start --server app --files 'app/**/*'"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.0"
+  }
+}
